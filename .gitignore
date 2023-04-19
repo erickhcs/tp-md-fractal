@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+tasks.json
+previous_file.txt
+next_file.txt
+1
