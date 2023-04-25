@@ -2,8 +2,8 @@
 
 char axiomChar = 'X';
 int axiomDegree = 90;
-char ruleX[] = "XFYFX+F+YFXFY-F-XFYFX";
-char ruleY[] = "YFXFY-F-XFYFX+F+YFXFY";
+char ruleX[] = "XFY+F+YFX-F-XFY";
+char ruleY[] = "YFX-F-XFY+F+YFX";
 int phase = 1;
 
 int main()
