@@ -7,12 +7,11 @@
 
 #define PI 3.14159265
 
-const int SCREEN_HEIGHT = 480;
-const int SCREEN_WIDTH = 320;
+const int SCREEN_HEIGHT = 1080;
+const int SCREEN_WIDTH = 1920;
 const int LINE_SIZE = 100;
 bool running = true;
-double axiomDegree = PI / 2;
-char rule[] = "F-F+F+FF-F-F+F";
+double axiomDegree = PI / 4;
 
 int main()
 {
@@ -20,6 +19,7 @@ int main()
   SDL_Surface *screenSurface;
   SDL_Renderer *renderer = NULL;
   SDL_Event sevent;
+  FILE *previousFilePointer;
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
   {
@@ -27,7 +27,7 @@ int main()
     SDL_Quit();
   }
 
-  window = SDL_CreateWindow("Teste", 100, 50, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+  window = SDL_CreateWindow("Fractal X - Estágio X", 100, 50, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
   if (!window)
   {
@@ -50,17 +50,19 @@ int main()
   SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
   // SDL_RenderDrawLine(renderer, 0, SCREEN_HEIGHT / 2, LINE_SIZE, SCREEN_HEIGHT / 2);
 
-  int x1 = 0;
-  int x2 = LINE_SIZE;
-  int y1 = SCREEN_HEIGHT / 2;
-  int y2 = SCREEN_HEIGHT / 2;
-  double currentDegree = axiomDegree;
+  int offset = 100;
+  int x1 = 0 + offset;
+  int x2 = LINE_SIZE + offset;
+  int y1 = 0 + offset;
+  int y2 = LINE_SIZE + offset;
+  double currentDegree = 0;
+   char charBuffer;
 
-  for (int i = 0; i < 14; i++)
+  previousFilePointer = fopen("previous_file.txt", "r");
+
+  while ((charBuffer = getc(previousFilePointer)) != EOF)
   {
-    char currentChar = rule[i];
-
-    switch (currentChar)
+    switch (charBuffer)
     {
     case 'F':
       x2 = x1 + (cos(currentDegree) * LINE_SIZE);
@@ -80,7 +82,9 @@ int main()
     default:
       break;
     }
-  }
+  };
+
+  fclose(previousFilePointer);
 
   SDL_RenderPresent(renderer);
 

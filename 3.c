@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 char axiomChar = 'X';
-int axiomDegree = 90;
+int axiomDegree = 45;
 char ruleX[] = "XFY+F+YFX-F-XFY";
 char ruleY[] = "YFX-F-XFY+F+YFX";
 int phase = 1;
