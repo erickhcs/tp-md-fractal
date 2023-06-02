@@ -15,7 +15,7 @@ int main()
   {
     if (i == 0)
     {
-      previousFilePointer = fopen("previous_file.txt", "w");
+      previousFilePointer = fopen("result_file_one.txt", "w");
 
       fputc(axiomChar, previousFilePointer);
 
@@ -24,8 +24,8 @@ int main()
       continue;
     }
 
-    previousFilePointer = fopen("previous_file.txt", "r");
-    currentFilePointer = fopen("next_file.txt", "w");
+    previousFilePointer = fopen("result_file_one.txt", "r");
+    currentFilePointer = fopen("intermediate_file_one.txt", "w");
 
     while ((charBuffer = getc(previousFilePointer)) != EOF)
     {
@@ -42,8 +42,8 @@ int main()
     fclose(previousFilePointer);
     fclose(currentFilePointer);
 
-    remove("previous_file.txt");
-    rename("next_file.txt", "previous_file.txt");
+    remove("result_file_one.txt");
+    rename("intermediate_file_one.txt", "result_file_one.txt");
   }
 
   return 0;

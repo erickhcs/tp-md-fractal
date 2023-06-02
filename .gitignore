@@ -51,8 +51,5 @@ Module.symvers
 Mkfile.old
 dkms.conf
 tasks.json
-previous_file.txt
-next_file.txt
-1
-2
-3
+result_file_*.txt
+intermediate_file_*.txt

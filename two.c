@@ -1,10 +1,10 @@
 #include <stdio.h>
 
 char axiomChar = 'X';
-int axiomDegree = 45;
-char ruleX[] = "XFY+F+YFX-F-XFY";
-char ruleY[] = "YFX-F-XFY+F+YFX";
-int phase = 1;
+int axiomDegree = 90;
+char ruleX[] = "XFYFX+F+YFXFY-F-XFYFX";
+char ruleY[] = "YFXFY-F-XFYFX+F+YFXFY";
+int phase = 4;
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
   {
     if (i == 0)
     {
-      previousFilePointer = fopen("previous_file.txt", "w");
+      previousFilePointer = fopen("result_file_two.txt", "w");
 
       fputc(axiomChar, previousFilePointer);
 
@@ -25,8 +25,8 @@ int main()
       continue;
     }
 
-    previousFilePointer = fopen("previous_file.txt", "r");
-    currentFilePointer = fopen("next_file.txt", "w");
+    previousFilePointer = fopen("result_file_two.txt", "r");
+    currentFilePointer = fopen("intermediate_file_two.txt", "w");
 
     while ((charBuffer = getc(previousFilePointer)) != EOF)
     {
@@ -47,12 +47,12 @@ int main()
     fclose(previousFilePointer);
     fclose(currentFilePointer);
 
-    remove("previous_file.txt");
-    rename("next_file.txt", "previous_file.txt");
+    remove("result_file_two.txt");
+    rename("intermediate_file_two.txt", "result_file_two.txt");
   }
 
-  previousFilePointer = fopen("previous_file.txt", "r");
-  currentFilePointer = fopen("next_file.txt", "w");
+  previousFilePointer = fopen("result_file_two.txt", "r");
+  currentFilePointer = fopen("intermediate_file_two.txt", "w");
 
   while ((charBuffer = getc(previousFilePointer)) != EOF)
   {
@@ -65,8 +65,8 @@ int main()
   fclose(previousFilePointer);
   fclose(currentFilePointer);
 
-  remove("previous_file.txt");
-  rename("next_file.txt", "previous_file.txt");
+  remove("result_file_two.txt");
+  rename("intermediate_file_two.txt", "result_file_two.txt");
 
   return 0;
 }
