@@ -1,0 +1,12 @@
+FRACTAIS
+
+Temos 3 programas que fazem a produção dos caracteres para os três fractais:
+ - one.c - Floco de neve onda quadrada de Von Kock
+ - two.c - Preenchimento de espaço de Peano
+ - three.c - Fractal definido pelo aluno
+
+Intruções para rodar:
+ 1. Escolher a fase do fractal a ser produzido (variável 'int phase' dentro de cada programa, com fase 4 por padrão);
+ 2. Rodar o comando 'make all' para fazer o build dos três programas;
+ 3. Rodar o programa escolhido (ex: './one.o' para produzir o Floco de neve onda quadrada de Von Kock);
+ 4. Os caracteres do fractal estarão no arquivo 'result_file_(nome_do_programa).txt' (Ex: arquivo 'result_file_one.txt' para o Floco de neve onda quadrada de Von Kock).
