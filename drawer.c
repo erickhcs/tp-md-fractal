@@ -19,7 +19,7 @@ int main()
   SDL_Surface *screenSurface;
   SDL_Renderer *renderer = NULL;
   SDL_Event sevent;
-  FILE *previousFilePointer;
+  FILE *resultFilePointer;
 
   if (SDL_Init(SDL_INIT_VIDEO) < 0)
   {
@@ -58,9 +58,9 @@ int main()
   double currentDegree = 0;
    char charBuffer;
 
-  previousFilePointer = fopen("previous_file.txt", "r");
+  resultFilePointer = fopen("result_file_three.txt", "r");
 
-  while ((charBuffer = getc(previousFilePointer)) != EOF)
+  while ((charBuffer = getc(resultFilePointer)) != EOF)
   {
     switch (charBuffer)
     {
@@ -84,7 +84,7 @@ int main()
     }
   };
 
-  fclose(previousFilePointer);
+  fclose(resultFilePointer);
 
   SDL_RenderPresent(renderer);
 

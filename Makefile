@@ -8,6 +8,12 @@ two: two.o
 
 three: three.o
 	gcc -o three.o three.c
- 
+
 clean:
-	rm -f one two three
+	rm -f one.o two.o three.o
+
+drawer: drawer.o
+	g++ -o drawer.o drawer.c `sdl2-config --cflags --libs`
+
+clean-drawer:
+	rm -f drawer.o
