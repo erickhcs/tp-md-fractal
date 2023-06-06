@@ -48,7 +48,6 @@ int main()
   SDL_UpdateWindowSurface(window);
 
   SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
-  // SDL_RenderDrawLine(renderer, 0, SCREEN_HEIGHT / 2, LINE_SIZE, SCREEN_HEIGHT / 2);
 
   int offset = 100;
   int x1 = 0 + offset;
@@ -105,7 +104,6 @@ int main()
     }
   }
 
-  // SDL_Delay(1000);
   SDL_FreeSurface(screenSurface);
   SDL_DestroyWindow(window);
   SDL_Quit();
